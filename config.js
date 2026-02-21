@@ -9,6 +9,7 @@ const CONFIG = {
   API_URL: 'https://script.google.com/macros/s/AKfycbxEHhwuToAiX0tiywXnGergGsLgUj8YA-whyXOuMBbBvXCT9PbJK0bk-LnZqqXUunWh/exec',
 
   // Nama aplikasi
+   // Nama aplikasi
   APP_NAME: 'Tracer Study Alumni',
-  SCHOOL_NAME: 'SLB Negeri Badegan Ponorogo', // ← sesuaikan
+  SCHOOL_NAME: 'Nama Sekolah Anda', // ← sesuaikan
 };
