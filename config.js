@@ -6,7 +6,7 @@
 const CONFIG = {
   // Paste URL deployment Google Apps Script Anda di sini
   // Contoh: 'https://script.google.com/macros/s/AKfycbxXXXXX.../exec'
-  API_URL: 'https://script.google.com/macros/s/AKfycbxR-pS9hWN4eTezbiV9l7f71dxFUlaGqebAZx1mCwKLpKkRcFvrIAzRilNlF4iT7zlq/exec',
+  API_URL: 'https://script.google.com/macros/s/AKfycbzOpp_YqwLbs5eTJ8kExpiX8xugSya9wmaDjsnUe981wrQQNXgzvuDY9qbf2B0jcc1G/exec',
 
   // Nama aplikasi
   APP_NAME: 'Tracer Alumni',
