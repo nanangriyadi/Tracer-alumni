@@ -52,7 +52,9 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 
 /* Main */
 .mn{flex:1;display:flex;flex-direction:column;overflow:hidden;}
-.mh{padding:1rem 1.8rem;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;background:rgba(13,10,26,.6);backdrop-filter:blur(10px);}
+.mh{padding:1rem 15%;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;background:rgba(13,10,26,.6);backdrop-filter:blur(10px);}
+@media(max-width:1100px){.mh{padding:1rem 5%;}}
+@media(max-width:640px) {.mh{padding:1rem 1.2rem;}}
 .mh h1{font-size:1.05rem;font-weight:700;}
 .mh p{font-size:.75rem;color:var(--mu);}
 .ha{display:flex;gap:.5rem;}
@@ -62,7 +64,9 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 .bd2{background:rgba(239,68,68,.1);color:#f87171;border:1px solid rgba(239,68,68,.2);}.bd2:hover{background:rgba(239,68,68,.22);}
 .bw2{background:rgba(245,158,11,.1);color:#fbbf24;border:1px solid rgba(245,158,11,.2);}.bw2:hover{background:rgba(245,158,11,.22);}
 
-.mc{flex:1;overflow-y:auto;padding:1.4rem 1.8rem 3rem;}
+.mc{flex:1;overflow-y:auto;padding:1.4rem 15% 3rem;}
+@media(max-width:1100px){.mc{padding:1.4rem 5% 3rem;}}
+@media(max-width:640px) {.mc{padding:1.2rem 1.2rem 3rem;}}
 
 /* Stats */
 .sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:.9rem;margin-bottom:1.8rem;}
@@ -102,7 +106,7 @@ tbody tr:last-child td{border-bottom:none;}
 /* Overlay */
 .ov{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:1.2rem;opacity:0;pointer-events:none;transition:opacity .2s;}
 .ov.open{opacity:1;pointer-events:all;}
-.mod{background:var(--s1);border:1px solid rgba(139,92,246,.3);border-radius:17px;width:100%;max-width:620px;max-height:90vh;overflow-y:auto;transform:scale(.94);transition:transform .2s;box-shadow:0 20px 70px rgba(91,33,182,.4);}
+.mod{background:var(--s1);border:1px solid rgba(139,92,246,.3);border-radius:17px;width:100%;max-width:620px;max-height:90vh;overflow-y:auto;overflow-x:hidden;transform:scale(.94);transition:transform .2s;box-shadow:0 20px 70px rgba(91,33,182,.4);}
 .ov.open .mod{transform:scale(1);}
 .mhh{padding:1.2rem 1.4rem .9rem;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;}
 .mhh h3{font-size:1.05rem;font-weight:700;}
@@ -133,13 +137,29 @@ tbody tr:last-child td{border-bottom:none;}
 .mff{padding:.9rem 1.4rem;border-top:1px solid var(--bd);display:flex;justify-content:flex-end;gap:.5rem;}
 
 /* Detail */
-.dg2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
-.di{display:flex;flex-direction:column;gap:3px;}
-.di.f{grid-column:1/-1;}
+.dg2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;width:100%;box-sizing:border-box;}
+.di{display:flex;flex-direction:column;gap:3px;min-width:0;} /* min-width:0 agar tidak overflow grid */
+.di.f{grid-column:1/-1;width:100%;box-sizing:border-box;}
 .dl{font-size:.63rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--mu);}
 .dv{font-size:.82rem;background:rgba(139,92,246,.06);border:1px solid var(--bd);border-radius:7px;padding:7px 10px;min-height:32px;line-height:1.45;word-break:break-word;}
-.foto-wrap{border-radius:8px;overflow:hidden;border:1px solid var(--bd);margin-top:3px;}
-.foto-wrap img{width:100%;max-height:220px;object-fit:cover;display:block;}
+.foto-wrap{
+  border-radius:8px;
+  overflow:hidden;
+  border:1px solid var(--bd);
+  margin-top:3px;
+  width:100%;          /* ikuti lebar kolom parent */
+  max-width:100%;      /* tidak boleh melebihi kolom */
+  box-sizing:border-box;
+}
+.foto-wrap img{
+  width:100%;          /* penuh sesuai .foto-wrap */
+  max-width:100%;
+  height:auto;         /* tinggi proporsional otomatis */
+  max-height:260px;    /* batas tinggi agar tidak terlalu panjang */
+  object-fit:contain;  /* tampilkan seluruh gambar tanpa crop */
+  display:block;
+  background:rgba(0,0,0,.15); /* bg hitam tipis jika ada sisi kosong */
+}
 .no-foto{padding:1.5rem;text-align:center;color:var(--mu);font-size:.8rem;background:rgba(139,92,246,.05);}
 
 /* Confirm */
