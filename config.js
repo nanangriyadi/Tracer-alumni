@@ -6,7 +6,7 @@
 const CONFIG = {
   // Paste URL deployment Google Apps Script Anda di sini
   // Contoh: 'https://script.google.com/macros/s/AKfycbxXXXXX.../exec'
-  API_URL: 'https://script.google.com/macros/s/AKfycbxEHhwuToAiX0tiywXnGergGsLgUj8YA-whyXOuMBbBvXCT9PbJK0bk-LnZqqXUunWh/exec',
+  API_URL: 'https://script.google.com/macros/s/AKfycbzvKpiOzfb7SbWHBFrB-AiYRXkLmkmqX8LHnT_-ud-TEdSohNAZAHYFcA0QrQNlHRbq/exec',
 
   // Nama aplikasi
    // Nama aplikasi
