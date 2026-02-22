@@ -137,7 +137,10 @@ tbody tr:last-child td{border-bottom:none;}
 .di{display:flex;flex-direction:column;gap:3px;}
 .di.f{grid-column:1/-1;}
 .dl{font-size:.63rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--mu);}
-.dv{font-size:.82rem;background:rgba(139,92,246,.06);border:1px solid var(--bd);border-radius:7px;padding:7px 10px;min-height:32px;line-height:1.45;}
+.dv{font-size:.82rem;background:rgba(139,92,246,.06);border:1px solid var(--bd);border-radius:7px;padding:7px 10px;min-height:32px;line-height:1.45;word-break:break-word;}
+.foto-wrap{border-radius:8px;overflow:hidden;border:1px solid var(--bd);margin-top:3px;}
+.foto-wrap img{width:100%;max-height:220px;object-fit:cover;display:block;}
+.no-foto{padding:1.5rem;text-align:center;color:var(--mu);font-size:.8rem;background:rgba(139,92,246,.05);}
 
 /* Confirm */
 .cf{text-align:center;padding:2rem;}
@@ -338,7 +341,13 @@ tbody tr:last-child td{border-bottom:none;}
 <!-- DETAIL MODAL -->
 <div class="ov" id="ovDt" onclick="if(event.target.id==='ovDt')cOv('ovDt')">
   <div class="mod">
-    <div class="mhh"><h3 id="dtN">—</h3><button class="xb" onclick="cOv('ovDt')">✕</button></div>
+    <div class="mhh">
+      <div>
+        <h3 id="dtN">—</h3>
+        <p id="dtSub" style="font-size:.75rem;color:var(--mu);margin-top:3px;">—</p>
+      </div>
+      <button class="xb" onclick="cOv('ovDt')">✕</button>
+    </div>
     <div class="mbb"><div class="dg2" id="dtG"></div></div>
   </div>
 </div>
@@ -501,16 +510,36 @@ function renderT(data) {
 /* ── DETAIL ── */
 function openDet(id) {
   const r = allData.find(x => String(x.id) === String(id)); if (!r) return;
-  document.getElementById('dtN').textContent = r.nama;
+  document.getElementById('dtN').textContent  = r.nama;
+  document.getElementById('dtSub').textContent = (r.jurusan||'—') + ' · Lulus ' + (r.tahunLulus||'—');
   const flds = [
-    ['NISN', r.nisn, false], ['Tahun Lulus', r.tahunLulus, false],
-    ['Jurusan', r.jurusan, false], ['TTL', r.ttl, false],
-    ['HP/WA', r.hp, false], ['Alamat', r.alamat, true],
-    ['Rutinitas', r.rutinitas, true], ['Melanjutkan Studi', r.melanjutkanStudi, false],
-    ['Studi Dimana', r.studioMana, false], ['Wirausaha', r.wirausaha, true]
+    ['NISN',              r.nisn,            false],
+    ['Tahun Lulus',       r.tahunLulus,       false],
+    ['Jurusan',           r.jurusan,          false],
+    ['TTL',               r.ttl,              false],
+    ['HP/WA',             r.hp,               false],
+    ['Melanjutkan Studi', r.melanjutkanStudi, false],
+    ['Alamat',            r.alamat,           true ],
+    ['Rutinitas',         r.rutinitas,        true ],
+    ['Studi Dimana',      r.studioMana,       false],
+    ['Wirausaha',         r.wirausaha,        true ],
   ];
-  let h = flds.map(([l,v,f]) => `<div class="di ${f?'f':''}"><span class="dl">${l}</span><div class="dv">${esc(v)||'—'}</div></div>`).join('');
-  if (r.fotoUsaha) h += `<div class="di f"><span class="dl">Foto Usaha</span><img src="${esc(r.fotoUsaha)}" style="width:100%;border-radius:8px;max-height:180px;object-fit:cover;margin-top:3px" onerror="this.style.display='none'"/></div>`;
+  let h = flds.map(([l,v,f]) =>
+    `<div class="di ${f?'f':''}"><span class="dl">${l}</span><div class="dv">${esc(v)||'—'}</div></div>`
+  ).join('');
+
+  // Foto usaha — selalu tampil, ada atau tidak
+  h += `<div class="di f">
+    <span class="dl">Foto Tempat Usaha</span>
+    <div class="foto-wrap">
+      ${r.fotoUsaha
+        ? `<img src="${esc(r.fotoUsaha)}" alt="Foto usaha"
+             onerror="this.outerHTML='<div class=\\'no-foto\\'>⚠️ Foto tidak dapat dimuat</div>'">`
+        : `<div class="no-foto">📷 Tidak ada foto</div>`
+      }
+    </div>
+  </div>`;
+
   document.getElementById('dtG').innerHTML = h;
   oOv('ovDt');
 }
