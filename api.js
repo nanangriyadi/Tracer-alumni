@@ -1,42 +1,57 @@
 // ============================================================
-//  API CLIENT - Komunikasi ke Google Apps Script backend
-//  Menggunakan fetch() karena berjalan di GitHub Pages
+//  API CLIENT - JSONP untuk GET, fetch biasa untuk POST
+//  Ini solusi yang benar untuk GAS + GitHub Pages CORS issue
 // ============================================================
 
 const API = {
 
-  // GET request (getData, verify)
-  // Menggunakan mode: 'cors' - GAS deployment "Anyone" sudah mendukung CORS
-  async get(params) {
-    const url = new URL(CONFIG.API_URL);
-    Object.entries(params).forEach(([k, v]) => url.searchParams.append(k, v));
+  // ── JSONP GET: bypass CORS redirect GAS sepenuhnya ──
+  jsonp(params) {
+    return new Promise((resolve, reject) => {
+      // Buat nama callback unik
+      const cbName = '_gcb_' + Date.now() + '_' + Math.random().toString(36).slice(2);
 
-    const res = await fetch(url.toString(), {
-      method: 'GET',
-      redirect: 'follow',
+      // Buat URL dengan callback
+      const url = new URL(CONFIG.API_URL);
+      Object.entries(params).forEach(([k, v]) => url.searchParams.append(k, v));
+      url.searchParams.append('callback', cbName);
+
+      // Timeout 15 detik
+      const timer = setTimeout(() => {
+        cleanup();
+        reject(new Error('Request timeout. Cek koneksi atau URL GAS.'));
+      }, 15000);
+
+      // Cleanup fungsi
+      function cleanup() {
+        clearTimeout(timer);
+        delete window[cbName];
+        if (script.parentNode) script.parentNode.removeChild(script);
+      }
+
+      // Daftarkan callback global
+      window[cbName] = function(data) {
+        cleanup();
+        resolve(data);
+      };
+
+      // Inject script tag
+      const script = document.createElement('script');
+      script.src = url.toString();
+      script.onerror = function() {
+        cleanup();
+        reject(new Error('Gagal memuat script GAS. Cek URL di config.js'));
+      };
+      document.head.appendChild(script);
     });
-
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-
-    // GAS kadang wrap response dalam HTML jika ada error server
-    const text = await res.text();
-    try {
-      return JSON.parse(text);
-    } catch(e) {
-      console.error('Response bukan JSON:', text.substring(0, 200));
-      throw new Error('Response tidak valid dari server. Cek deployment GAS Anda.');
-    }
   },
 
-  // POST request (add, update, delete)
-  // Content-Type: text/plain wajib agar GAS tidak reject karena CORS preflight
+  // ── POST: tetap pakai fetch biasa (doPost GAS tidak redirect) ──
   async post(body) {
     const res = await fetch(CONFIG.API_URL, {
       method: 'POST',
       redirect: 'follow',
-      headers: {
-        'Content-Type': 'text/plain;charset=utf-8',
-      },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(body),
     });
 
@@ -46,13 +61,14 @@ const API = {
     try {
       return JSON.parse(text);
     } catch(e) {
-      console.error('Response bukan JSON:', text.substring(0, 200));
-      throw new Error('Response tidak valid dari server. Cek deployment GAS Anda.');
+      console.error('POST response bukan JSON:', text.substring(0, 300));
+      throw new Error('Response tidak valid dari server.');
     }
   },
 
-  getAllData:   ()           => API.get({ action: 'getData' }),
-  verifyAdmin: (pw)         => API.get({ action: 'verify', pw }),
+  // ── Public methods ──
+  getAllData:   ()           => API.jsonp({ action: 'getData' }),
+  verifyAdmin: (pw)         => API.jsonp({ action: 'verify', pw }),
   addRow:      (data, pw)   => API.post({ action: 'add',    data, pw }),
   updateRow:   (data, pw)   => API.post({ action: 'update', data, pw }),
   deleteRow:   (id,   pw)   => API.post({ action: 'delete', id,   pw }),
