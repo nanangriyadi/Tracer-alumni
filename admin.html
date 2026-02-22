@@ -527,6 +527,30 @@ function renderT(data) {
   tb.innerHTML = h;
 }
 
+/* ── HELPER: Konversi URL Google Drive ke link gambar langsung ── */
+function toDirectImg(url) {
+  if (!url || !url.trim()) return null;
+  url = url.trim();
+
+  // Format: https://drive.google.com/file/d/FILE_ID/view
+  let m = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (m) return `https://drive.google.com/thumbnail?id=${m[1]}&sz=w800`;
+
+  // Format: https://drive.google.com/open?id=FILE_ID
+  m = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+  if (m) return `https://drive.google.com/thumbnail?id=${m[1]}&sz=w800`;
+
+  // Format: https://drive.google.com/uc?id=FILE_ID
+  m = url.match(/\/uc\?.*id=([a-zA-Z0-9_-]+)/);
+  if (m) return `https://drive.google.com/thumbnail?id=${m[1]}&sz=w800`;
+
+  // Format: https://lh3.googleusercontent.com/... (sudah direct, langsung pakai)
+  if (url.includes('googleusercontent.com')) return url;
+
+  // URL lain (bukan Drive) — coba langsung
+  return url;
+}
+
 /* ── DETAIL ── */
 function openDet(id) {
   const r = allData.find(x => String(x.id) === String(id)); if (!r) return;
@@ -549,12 +573,13 @@ function openDet(id) {
   ).join('');
 
   // Foto usaha — selalu tampil, ada atau tidak
+  const fotoUrl = r.fotoUsaha ? toDirectImg(r.fotoUsaha) : null;
   h += `<div class="di f">
     <span class="dl">Foto Tempat Usaha</span>
     <div class="foto-wrap">
-      ${r.fotoUsaha
-        ? `<img src="${esc(r.fotoUsaha)}" alt="Foto usaha"
-             onerror="this.outerHTML='<div class=\\'no-foto\\'>⚠️ Foto tidak dapat dimuat</div>'">`
+      ${fotoUrl
+        ? `<img src="${esc(fotoUrl)}" alt="Foto usaha"
+             onerror="this.outerHTML='<div class=\\'no-foto\\'>⚠️ Foto tidak dapat dimuat.<br><small style=\\'font-size:.7rem;opacity:.7\\'>Pastikan foto di Google Drive sudah dibagikan ke &quot;Siapa saja yang memiliki link&quot;</small></div>'">`
         : `<div class="no-foto">📷 Tidak ada foto</div>`
       }
     </div>
