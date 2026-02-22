@@ -20,90 +20,122 @@ body{
     radial-gradient(ellipse 80% 50% at 50% -20%,rgba(91,33,182,.35) 0%,transparent 60%),
     radial-gradient(ellipse 40% 30% at 80% 90%,rgba(139,92,246,.12) 0%,transparent 50%);
 }
+
 /* HEADER */
 .hdr{position:sticky;top:0;z-index:40;background:rgba(13,10,26,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);}
-.hdr-in{max-width:1400px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:62px;}
+.hdr-in{max-width:1400px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;}
 .logo{display:flex;align-items:center;gap:10px;}
 .lmark{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--p),var(--a));display:grid;place-items:center;font-size:13px;font-weight:800;color:#fff;}
 .ltxt{font-size:1.05rem;font-weight:700;letter-spacing:-.02em;}
 .ltxt span{color:var(--a2);}
-.abtn{font-size:.78rem;color:var(--mu);text-decoration:none;padding:7px 16px;border:1px solid var(--bd);border-radius:20px;transition:all .2s;}
+.abtn{font-size:.78rem;color:var(--mu);text-decoration:none;padding:7px 18px;border:1px solid var(--bd);border-radius:20px;transition:all .2s;}
 .abtn:hover{background:var(--p);color:#fff;border-color:var(--p);}
 
 /* HERO */
-.hero{text-align:center;padding:2.5rem 1.5rem 1.5rem;max-width:680px;margin:0 auto;}
-.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.28);color:var(--a2);font-size:.7rem;font-weight:600;padding:4px 13px;border-radius:20px;margin-bottom:1rem;letter-spacing:.07em;text-transform:uppercase;}
-.hero h1{font-size:clamp(1.6rem,4vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-.03em;margin-bottom:.6rem;}
+.hero{text-align:center;padding:3rem 1.5rem 1.8rem;max-width:680px;margin:0 auto;}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.28);color:var(--a2);font-size:.7rem;font-weight:600;padding:4px 14px;border-radius:20px;margin-bottom:1.1rem;letter-spacing:.07em;text-transform:uppercase;}
+.hero h1{font-size:clamp(1.7rem,5vw,2.8rem);font-weight:800;line-height:1.15;letter-spacing:-.03em;margin-bottom:.8rem;}
 .grad{background:linear-gradient(90deg,var(--a2),var(--go));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.hero p{color:var(--mu);font-size:.88rem;line-height:1.65;}
+.hero p{color:var(--mu);font-size:.9rem;line-height:1.65;}
 
 /* STATS */
-.stats{max-width:1400px;margin:0 auto 1.5rem;padding:0 1.5rem;display:flex;gap:.7rem;flex-wrap:wrap;}
-.sc{background:rgba(30,20,66,.75);border:1px solid var(--bd);border-radius:10px;padding:10px 16px;font-size:.77rem;color:var(--mu);}
-.sc strong{display:block;font-size:1.25rem;color:var(--tx);font-weight:700;}
+.stats{max-width:1400px;margin:0 auto 1.6rem;padding:0 2rem;display:flex;gap:.8rem;flex-wrap:wrap;}
+.sc{background:rgba(30,20,66,.75);border:1px solid var(--bd);border-radius:10px;padding:11px 20px;font-size:.77rem;color:var(--mu);}
+.sc strong{display:block;font-size:1.3rem;color:var(--tx);font-weight:700;}
 
 /* CONTROLS */
-.ctrl{max-width:1400px;margin:0 auto 1rem;padding:0 1.5rem;display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;}
-.sw{flex:1;min-width:180px;max-width:300px;position:relative;}
-.sw svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--mu);}
-.si{width:100%;padding:9px 12px 9px 33px;background:rgba(30,20,66,.75);border:1px solid var(--bd);border-radius:9px;color:var(--tx);font-size:.82rem;font-family:inherit;transition:border-color .2s;}
+.ctrl{max-width:1400px;margin:0 auto 1.2rem;padding:0 2rem;display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;}
+.sw{flex:1;min-width:200px;max-width:320px;position:relative;}
+.sw svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--mu);}
+.si{width:100%;padding:9px 12px 9px 35px;background:rgba(30,20,66,.75);border:1px solid var(--bd);border-radius:9px;color:var(--tx);font-size:.82rem;font-family:inherit;transition:border-color .2s;}
 .si:focus{outline:none;border-color:var(--a);}
 .si::placeholder{color:var(--mu);}
-select.fs{padding:9px 12px;background:rgba(30,20,66,.75);border:1px solid var(--bd);border-radius:9px;color:var(--tx);font-size:.82rem;cursor:pointer;font-family:inherit;}
+select.fs{padding:9px 14px;background:rgba(30,20,66,.75);border:1px solid var(--bd);border-radius:9px;color:var(--tx);font-size:.82rem;cursor:pointer;font-family:inherit;}
 select.fs:focus{outline:none;border-color:var(--a);}
-.sb{padding:9px 14px;background:rgba(30,20,66,.75);border:1px solid var(--bd);border-radius:9px;color:var(--mu);font-size:.78rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .2s;font-family:inherit;}
+.sb{padding:9px 16px;background:rgba(30,20,66,.75);border:1px solid var(--bd);border-radius:9px;color:var(--mu);font-size:.78rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .2s;font-family:inherit;}
 .sb:hover,.sb.act{background:var(--p);color:#fff;border-color:var(--p);}
 
-/* TABLE AREA */
-.tarea{max-width:1400px;margin:0 auto;padding:0 1.5rem 4rem;}
-.tbox{background:rgba(22,15,46,.72);border:1px solid var(--bd);border-radius:13px;overflow:hidden;overflow-x:auto;backdrop-filter:blur(12px);margin-bottom:1rem;}
-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.8rem;}
+/* TABLE */
+.tarea{max-width:1400px;margin:0 auto;padding:0 2rem 4rem;}
+.cnt{font-size:.73rem;color:var(--mu);margin-bottom:.9rem;}
+
+.tbox{background:rgba(22,15,46,.72);border:1px solid var(--bd);border-radius:14px;overflow:hidden;overflow-x:auto;backdrop-filter:blur(12px);}
+
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.82rem;}
+
 thead th{
   background:rgba(91,33,182,.2);color:var(--a2);
-  font-size:.65rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
-  padding:10px 13px;border-bottom:1px solid var(--bd);white-space:nowrap;
-  cursor:pointer;user-select:none;transition:background .15s;position:sticky;top:62px;z-index:2;
+  font-size:.66rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  /* Jarak antar kolom diperbesar */
+  padding:13px 20px;
+  border-bottom:1px solid var(--bd);white-space:nowrap;
+  cursor:pointer;user-select:none;transition:background .15s;
+  position:sticky;top:64px;z-index:2;
 }
 thead th:hover{background:rgba(91,33,182,.32);}
-tbody tr{cursor:pointer;transition:background .13s;}
-tbody tr:hover{background:rgba(139,92,246,.11);}
-tbody td{padding:10px 13px;vertical-align:middle;border-bottom:1px solid rgba(139,92,246,.07);max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+tbody tr{cursor:pointer;transition:background .13s,transform .08s;}
+tbody tr:hover{background:rgba(139,92,246,.11);transform:translateY(-1px);}
+
+tbody td{
+  /* Jarak antar kolom diperbesar — kiri-kanan 20px, atas-bawah 13px */
+  padding:13px 20px;
+  vertical-align:middle;
+  border-bottom:1px solid rgba(139,92,246,.07);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
 tbody tr:last-child td{border-bottom:none;}
-.rn{color:var(--mu);font-family:'DM Mono',monospace;font-size:.68rem;}
-/* Year separator row */
+
+/* Lebar minimum tiap kolom */
+.cn { width:50px; text-align:center; }
+.c-nama { min-width:160px; max-width:200px; }
+.c-nisn { min-width:130px; }
+.c-thn  { min-width:80px;  }
+.c-jur  { min-width:160px; max-width:200px; }
+.c-ttl  { min-width:120px; }
+.c-hp   { min-width:140px; }
+.c-almt { min-width:170px; max-width:200px; }
+.c-rut  { min-width:140px; max-width:180px; }
+.c-st   { min-width:95px;  }
+.c-sdm  { min-width:160px; max-width:190px; }
+.c-wu   { min-width:150px; max-width:190px; }
+
+/* Year separator */
 .ysep td{
   background:rgba(91,33,182,.1)!important;
-  border-top:2px solid rgba(139,92,246,.3)!important;
-  border-bottom:1px solid rgba(139,92,246,.2)!important;
-  padding:5px 13px;font-size:.66rem;font-weight:700;
-  letter-spacing:.09em;text-transform:uppercase;
-  color:var(--a2);font-family:'DM Mono',monospace;
+  border-top:2px solid rgba(139,92,246,.28)!important;
+  border-bottom:1px solid rgba(139,92,246,.16)!important;
+  padding:6px 20px;
+  font-size:.66rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--a2);
+  font-family:'DM Mono',monospace;
 }
-.bgs{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.67rem;font-weight:600;}
+
+.rn{color:var(--mu);font-family:'DM Mono',monospace;font-size:.7rem;}
+.bgs{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.68rem;font-weight:600;}
 .bst{background:rgba(34,197,94,.12);color:#4ade80;}
 .bwu{background:rgba(239,68,68,.12);color:#f87171;}
 .bot{background:rgba(148,163,184,.1);color:#94a3b8;}
-.cnt{font-size:.72rem;color:var(--mu);margin-bottom:1rem;}
 
 /* MODAL */
 .mov{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.72);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity .2s;}
 .mov.open{opacity:1;pointer-events:all;}
 .mcard{background:var(--s1);border:1px solid rgba(139,92,246,.3);border-radius:18px;width:100%;max-width:620px;max-height:90vh;overflow-y:auto;transform:scale(.95) translateY(8px);transition:transform .2s;box-shadow:0 25px 80px rgba(91,33,182,.4);}
 .mov.open .mcard{transform:scale(1) translateY(0);}
-.mhd{padding:1.3rem 1.5rem 1rem;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:flex-start;}
+.mhd{padding:1.4rem 1.6rem 1.1rem;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:flex-start;}
 .mhd h2{font-size:1.15rem;font-weight:700;}
 .mhd p{color:var(--mu);font-size:.78rem;margin-top:3px;}
 .xb{width:30px;height:30px;border-radius:7px;background:rgba(139,92,246,.1);border:1px solid var(--bd);color:var(--mu);cursor:pointer;display:grid;place-items:center;font-size:.85rem;transition:background .2s;flex-shrink:0;}
 .xb:hover{background:rgba(239,68,68,.18);color:#f87171;}
-.mbd{padding:1.3rem 1.5rem;}
-.dg{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;}
-.di{display:flex;flex-direction:column;gap:3px;}
+.mbd{padding:1.4rem 1.6rem;}
+.dg{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.di{display:flex;flex-direction:column;gap:4px;}
 .di.f{grid-column:1/-1;}
 .dl{font-size:.63rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--mu);}
-.dv{font-size:.85rem;background:rgba(139,92,246,.06);border:1px solid var(--bd);border-radius:7px;padding:8px 11px;min-height:34px;line-height:1.45;word-break:break-word;}
-.foto-wrap{margin-top:4px;border-radius:10px;overflow:hidden;border:1px solid var(--bd);}
+.dv{font-size:.85rem;background:rgba(139,92,246,.06);border:1px solid var(--bd);border-radius:8px;padding:9px 12px;min-height:36px;line-height:1.5;word-break:break-word;}
+.foto-wrap{border-radius:10px;overflow:hidden;border:1px solid var(--bd);margin-top:4px;}
 .foto-wrap img{width:100%;max-height:220px;object-fit:cover;display:block;}
-.foto-wrap .no-foto{padding:1.5rem;text-align:center;color:var(--mu);font-size:.8rem;background:rgba(139,92,246,.05);}
+.no-foto{padding:2rem;text-align:center;color:var(--mu);font-size:.82rem;background:rgba(139,92,246,.04);}
 
 /* LOADING */
 .lds{text-align:center;padding:5rem 2rem;color:var(--mu);}
@@ -168,9 +200,7 @@ tbody tr:last-child td{border-bottom:none;}
       <div><h2 id="mNama">—</h2><p id="mSub">—</p></div>
       <button class="xb" onclick="closeMod()">✕</button>
     </div>
-    <div class="mbd">
-      <div class="dg" id="mGrid"></div>
-    </div>
+    <div class="mbd"><div class="dg" id="mGrid"></div></div>
   </div>
 </div>
 
@@ -226,9 +256,9 @@ function filterRender() {
     if (q && !(r.nama+' '+r.nisn+' '+r.jurusan+' '+r.alamat).toLowerCase().includes(q)) return false;
     if (yr && r.tahunLulus != yr) return false;
     if (jr && r.jurusan !== jr) return false;
-    if (st === 'ya'       && !r.melanjutkanStudi.toLowerCase().includes('ya')) return false;
-    if (st === 'wirausaha'&& !(r.wirausaha && r.wirausaha.trim())) return false;
-    if (st === 'lain'     && (r.melanjutkanStudi.toLowerCase().includes('ya') || (r.wirausaha && r.wirausaha.trim()))) return false;
+    if (st === 'ya'        && !r.melanjutkanStudi.toLowerCase().includes('ya')) return false;
+    if (st === 'wirausaha' && !(r.wirausaha && r.wirausaha.trim())) return false;
+    if (st === 'lain'      && (r.melanjutkanStudi.toLowerCase().includes('ya') || (r.wirausaha && r.wirausaha.trim()))) return false;
     return true;
   });
   d.sort((a,b) => {
@@ -240,30 +270,31 @@ function filterRender() {
 }
 
 function tSort(f) {
-  if (sf === f) sd *= -1; else { sf = f; sd = 1; }
-  document.querySelectorAll('.sb').forEach(b => b.classList.remove('act'));
-  document.getElementById(f === 'nama' ? 'bN' : 'bT').classList.add('act');
+  if (sf===f) sd*=-1; else{sf=f;sd=1;}
+  document.querySelectorAll('.sb').forEach(b=>b.classList.remove('act'));
+  document.getElementById(f==='nama'?'bN':'bT').classList.add('act');
   filterRender();
 }
 
 function renderTable(data) {
   const area = document.getElementById('tarea');
-  if (!data.length) { area.innerHTML = '<div class="emp">🔍 Tidak ada data yang sesuai filter.</div>'; return; }
+  if (!data.length) { area.innerHTML='<div class="emp">🔍 Tidak ada data yang sesuai filter.</div>'; return; }
 
-  let html = `<p class="cnt">Menampilkan <strong>${data.length}</strong> dari <strong>${allData.length}</strong> alumni</p>`;
+  let html = `<p class="cnt">Menampilkan <strong style="color:var(--tx)">${data.length}</strong> dari <strong style="color:var(--tx)">${allData.length}</strong> alumni</p>`;
   html += `<div class="tbox"><table>
     <thead><tr>
-      <th onclick="tSort('nama')">#&nbsp;&nbsp;Nama ↕</th>
-      <th onclick="tSort('nisn')">NISN ↕</th>
-      <th onclick="tSort('tahunLulus')">Tahun ↕</th>
-      <th>Jurusan</th>
-      <th>TTL</th>
-      <th>HP/WA</th>
-      <th>Alamat</th>
-      <th>Rutinitas</th>
-      <th>Studi?</th>
-      <th>Studi Dimana</th>
-      <th>Wirausaha</th>
+      <th class="cn">#</th>
+      <th class="c-nama">Nama</th>
+      <th class="c-nisn">NISN</th>
+      <th class="c-thn">Tahun</th>
+      <th class="c-jur">Jurusan</th>
+      <th class="c-ttl">TTL</th>
+      <th class="c-hp">HP / WA</th>
+      <th class="c-almt">Alamat</th>
+      <th class="c-rut">Rutinitas</th>
+      <th class="c-st">Status</th>
+      <th class="c-sdm">Studi Dimana</th>
+      <th class="c-wu">Wirausaha</th>
     </tr></thead>
     <tbody>`;
 
@@ -272,24 +303,24 @@ function renderTable(data) {
     const y = r.tahunLulus || '—';
     if (y !== lastY) {
       if (lastY !== null) {
-        // separator antar angkatan
-        html += `<tr class="ysep"><td colspan="11">── ANGKATAN ${esc(y)} ──</td></tr>`;
+        html += `<tr class="ysep"><td colspan="12">── ANGKATAN ${esc(y)} ──</td></tr>`;
       }
       lastY = y; no = 0;
     }
     no++;
-    html += `<tr onclick='openMod(${JSON.stringify(r).replace(/'/g,"\\'")})'> 
-      <td><span class="rn">${no}&nbsp;</span><strong>${esc(r.nama)}</strong></td>
-      <td style="font-family:'DM Mono',monospace;font-size:.72rem">${esc(r.nisn)}</td>
-      <td style="font-family:'DM Mono',monospace">${esc(r.tahunLulus)}</td>
-      <td>${esc(r.jurusan)}</td>
-      <td>${esc(r.ttl)}</td>
-      <td>${esc(r.hp)}</td>
-      <td>${esc(r.alamat)}</td>
-      <td>${esc(r.rutinitas)}</td>
-      <td>${badge(r)}</td>
-      <td>${esc(r.studioMana)}</td>
-      <td>${esc(r.wirausaha)}</td>
+    html += `<tr onclick='openMod(${JSON.stringify(r).replace(/'/g,"\\'")})'>
+      <td class="cn rn">${no}</td>
+      <td class="c-nama"><strong>${esc(r.nama)}</strong></td>
+      <td class="c-nisn" style="font-family:'DM Mono',monospace;font-size:.74rem">${esc(r.nisn)}</td>
+      <td class="c-thn"  style="font-family:'DM Mono',monospace">${esc(r.tahunLulus)}</td>
+      <td class="c-jur">${esc(r.jurusan)}</td>
+      <td class="c-ttl">${esc(r.ttl)}</td>
+      <td class="c-hp">${esc(r.hp)}</td>
+      <td class="c-almt">${esc(r.alamat)}</td>
+      <td class="c-rut">${esc(r.rutinitas)}</td>
+      <td class="c-st">${badge(r)}</td>
+      <td class="c-sdm">${esc(r.studioMana)}</td>
+      <td class="c-wu">${esc(r.wirausaha)}</td>
     </tr>`;
   });
 
@@ -298,42 +329,42 @@ function renderTable(data) {
 }
 
 function badge(r) {
-  const s = (r.melanjutkanStudi || '').toLowerCase();
-  if (s.includes('ya')) return '<span class="bgs bst">Studi</span>';
+  const s = (r.melanjutkanStudi||'').toLowerCase();
+  if (s.includes('ya'))                  return '<span class="bgs bst">Studi</span>';
   if (r.wirausaha && r.wirausaha.trim()) return '<span class="bgs bwu">Wirausaha</span>';
   return '<span class="bgs bot">—</span>';
 }
 
 function openMod(r) {
-  document.getElementById('mNama').textContent = r.nama || '—';
+  document.getElementById('mNama').textContent = r.nama  || '—';
   document.getElementById('mSub').textContent  = (r.jurusan||'—') + ' · Lulus ' + (r.tahunLulus||'—');
 
   const flds = [
-    ['NISN',               r.nisn,             false],
-    ['Tahun Lulus',        r.tahunLulus,        false],
-    ['Jurusan',            r.jurusan,           false],
-    ['Tempat, Tgl Lahir',  r.ttl,               false],
-    ['No HP / WA',         r.hp,                false],
-    ['Melanjutkan Studi?', r.melanjutkanStudi,  false],
-    ['Alamat Domisili',    r.alamat,            true ],
-    ['Rutinitas',          r.rutinitas,         true ],
-    ['Studi Dimana',       r.studioMana,        false],
-    ['Keterangan Wirausaha', r.wirausaha,       true ],
+    ['NISN',                 r.nisn,            false],
+    ['Tahun Lulus',          r.tahunLulus,       false],
+    ['Jurusan',              r.jurusan,          false],
+    ['Tempat, Tgl Lahir',    r.ttl,              false],
+    ['No HP / WA',           r.hp,               false],
+    ['Melanjutkan Studi?',   r.melanjutkanStudi, false],
+    ['Alamat Domisili',      r.alamat,           true ],
+    ['Rutinitas Keseharian', r.rutinitas,        true ],
+    ['Jika Studi, Dimana?',  r.studioMana,       false],
+    ['Keterangan Wirausaha', r.wirausaha,        true ],
   ];
 
   let html = flds.map(([l,v,f]) =>
     `<div class="di ${f?'f':''}">
       <span class="dl">${l}</span>
-      <div class="dv">${esc(v) || '—'}</div>
+      <div class="dv">${esc(v)||'—'}</div>
     </div>`
   ).join('');
 
-  // Foto usaha selalu tampil (ada atau tidak)
   html += `<div class="di f">
     <span class="dl">Foto Tempat Usaha</span>
     <div class="foto-wrap">
       ${r.fotoUsaha
-        ? `<img src="${esc(r.fotoUsaha)}" alt="Foto tempat usaha" onerror="this.parentNode.innerHTML='<div class=\\'no-foto\\'>⚠️ Foto tidak dapat dimuat</div>'">`
+        ? `<img src="${esc(r.fotoUsaha)}" alt="Foto tempat usaha"
+             onerror="this.outerHTML='<div class=\\'no-foto\\'>⚠️ Foto tidak dapat dimuat</div>'">`
         : `<div class="no-foto">📷 Tidak ada foto</div>`
       }
     </div>
@@ -349,7 +380,7 @@ function closeMod() {
   document.body.style.overflow = '';
 }
 
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMod(); });
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeMod(); });
 
 function esc(s) {
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
